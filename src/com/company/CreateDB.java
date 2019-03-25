@@ -20,6 +20,7 @@ public class CreateDB {
              //Close the connection.
             conn.close();
 
+
         }
         catch(Exception e){
 
@@ -68,10 +69,6 @@ public class CreateDB {
         }
     }
 
-    /**
-     * The buildCoffeeTable method creates the
-     * Coffee table and adds some rows to it.
-     */
     public static void buildProductTable(Connection conn)
     {
         try
@@ -81,22 +78,22 @@ public class CreateDB {
 
             // Create the table.
             stmt.execute("CREATE TABLE Product (" +
-                    "ProdNum CHAR(10) NOT NULL PRIMARY KEY, "+
-                    "Name VARCHAR(25)" +
-                    "ShortDesc VARCHAR(40), " +
-                    "LongDesc TEXT" +
+                    "ProdNum INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), "+
+                    "Name VARCHAR(25)," +
+                    "ShortDesc VARCHAR(40)," +
+                    "LongDesc CLOB," +
                     "Price DOUBLE " +
                     ")");
 
             stmt.executeUpdate("INSERT INTO Product VALUES" +
-                    "('001', 'Brass Knob', 'A knob made of premium brass'," +
-                    " 'A classic style knob made of the finest swiss brass', '5.99' )");
+                    "(default, 'Brass Knob', 'A knob made of premium brass'," +
+                    " 'A classic style knob made of the finest swiss brass', 5.99 )");
             stmt.executeUpdate("INSERT INTO Product VALUES" +
-                    "('002', 'Glass Knob', 'A luxurious glass knob'," +
-                    " 'A knob crafted by the finest glassblower in all of Mozambique', '8.99' )");
+                    "(default, 'Glass Knob', 'A luxurious glass knob'," +
+                    " 'A knob crafted by the finest glassblower in all of Mozambique', 8.99 )");
             stmt.executeUpdate("INSERT INTO Product VALUES" +
-                    "('003', 'Stainless Steel Knob', 'A sleek modern knob'," +
-                    " 'A fresh new style of knob made of 100% recycled railroad steel', '7.99' )");
+                    "(default, 'Stainless Steel Knob', 'A sleek modern knob'," +
+                    " 'A fresh new style of knob made of 100% recycled railroad steel', 7.99 )");
             System.out.println("Product table created.");
         } catch (SQLException ex)
         {
@@ -117,8 +114,8 @@ public class CreateDB {
 
             // Create the table.
             stmt.execute("CREATE TABLE Cart" +
-                    "( CartItemNum CHAR(10) NOT NULL PRIMARY KEY, " +
-                    "  ProdNum CHAR(10) NOT NULL");
+                    "( CartItemNum INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
+                    "  ProdNum INT NOT NULL)");
 
             System.out.println("Cart table created.");
         } catch (SQLException ex)
