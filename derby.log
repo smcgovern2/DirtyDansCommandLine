@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Apr 03 13:12:17 CDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (Unversioned directory): instance a816c00e-0169-e466-d1f8-00000e671698 
+on database directory C:\Users\Sean\IdeaProjects\DirtyDansCommandLine\DoorknobDB with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/C:/Program%20Files%20(x86)/Java/java_ee_sdk-8/glassfish5/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_191-b12
+user.dir=C:\Users\Sean\IdeaProjects\DirtyDansCommandLine
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
